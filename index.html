@@ -3,64 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oficjalna strona Wojtka</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Oficjalna Strona Wojtka</title>
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* NOWOCZESNE KOLORY I CZCIONKI */
+        :root {
+            --bg: #f8fafc;
+            --text: #0f172a;
+            --accent-red: #ff4757;
+            --accent-blue: #3b82f6;
+            --border-color: #cbd5e1;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+        /* KLASYCZNY PASEK MARQUEE (Zostawiamy oryginalny tag dla efektu lat 90!) */
+        marquee {
+            background-color: var(--accent-red);
+            color: white;
+            padding: 10px 0;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: block;
+        }
+
+        /* NAGŁÓWEK - WYŚRODKOWANY JAK KIEDYŚ */
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: var(--card-bg);
+            border-bottom: 3px double var(--border-color);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+            color: var(--text);
+        }
+
+        header p {
+            color: #64748b;
+            font-style: italic;
+        }
+
+        hr {
+            border: none;
+            border-top: 3px double var(--border-color);
+            margin: 20px auto;
+            max-width: 90%;
+        }
+
+        /* KLASYCZNA STRUKTURA TABELI Z LAT 90. - ULEPSZONA WIZUALNIE */
+        .layout-table {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+            border-collapse: separate;
+            border-spacing: 15px;
+        }
+
+        /* MENU BOCZNE */
+        .sidebar {
+            width: 25%;
+            background-color: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            vertical-align: top;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar h3 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--accent-blue);
+            padding-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .sidebar ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 12px;
+        }
+
+        .sidebar a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        .construction-box {
+            text-align: center;
+            margin-top: 40px;
+            padding: 10px;
+            border: 1px dashed var(--accent-red);
+            border-radius: 8px;
+            background-color: #fff5f5;
+        }
+
+        /* GŁÓWNA TREŚĆ STRONY */
+        .main-content {
+            width: 75%;
+            background-color: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            vertical-align: top;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .main-content h2 {
+            color: var(--text);
+            margin-top: 0;
+            font-size: 1.6rem;
+        }
+
+        /* TABELA WPISÓW WLOGA (RETRO TIMELINE VIBE) */
+        .vlog-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .vlog-table td {
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            background-color: var(--bg);
+            border-radius: 6px;
+        }
+
+        .vlog-date {
+            font-size: 0.85rem;
+            color: #64748b;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* STOPKA I LICZNIK */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: var(--card-bg);
+            border-top: 3px double var(--border-color);
+            margin-top: 40px;
+        }
+
+        .counter-box {
+            display: inline-block;
+            background-color: #0f172a;
+            color: #10b981; /* Nowoczesny, jasny zielony zamiast żarówiastego */
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 5px 15px;
+            border-radius: 6px;
+            letter-spacing: 3px;
+            margin: 10px 0;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.6);
+        }
+
+        /* DOPASOWANIE DO TELEFONÓW */
+        @media (max-width: 768px) {
+            .layout-table, .layout-table tr, .layout-table td {
+                display: block;
+                width: 100% !important;
+            }
+            .layout-table {
+                width: 95%;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- KULTOWY PASEK RETRO ZOSTAJE NA GÓRZE -->
-    <marquee bgcolor="#ff4757" scrollamount="6"><font color="#FFFFFF" size="4"><b>!!! WITAJ NA OFICJALNEJ STRONIE WOJTKA !!! NAJLEPSZA STRONA W CAŁYM INTERNETIE !!!</b></font></marquee>
+    <!-- KULTOWY PASEK NA GÓRZE ZOSTAJE -->
+    <marquee scrollamount="6">!!! WITAJ NA OFICJALNEJ STRONIE WOJTKA !!! NAJLEPSZA STRONA W CAŁYM INTERNETIE !!!</marquee>
 
     <header>
-        <div class="container header-content">
-            <div class="avatar">W</div>
-            <h1>Siemanko, jestem Wojtek!</h1>
-            <p class="subtitle">Witaj w mojej osobistej przestrzeni w sieci.</p>
-        </div>
+        <h1>Strona Domowa Wojtka</h1>
+        <p>Klasyczny układ lat 90. w nowoczesnym wydaniu wizualnym</p>
     </header>
 
-    <main class="container page-layout">
-        <!-- LEWA KOLUMNA: O MNIE -->
-        <section class="card about-section">
-            <h2>O mnie</h2>
-            <p>Zdecydowałem się na stworzenie własnego miejsca w sieci, żeby dzielić się swoimi projektami i codziennością. Interesuję się technologią, nowoczesnym web designem oraz dobrą rozrywką. Kiedy nie siedzę przed komputerem, spędzam czas ze znajomymi lub planuję kolejne cele.</p>
-            
-            <h3 style="margin-top: 25px;">Moje zainteresowania:</h3>
-            <ul class="interests-list">
-                <li>🎮 Gry komputerowe (szczególnie dobre strategie i fpsy)</li>
-                <li>💻 Kodowanie stron internetowych i zabawa technologią</li>
-                <li>🎵 Odkrywanie nowej muzyki i dobre brzmienia</li>
-            </ul>
-        </section>
+    <!-- BUDOWA OPARTA NA TABELI (Dokładnie tak, jak budowało się strony w latach 90) -->
+    <table class="layout-table">
+        <tr>
+            <!-- LEWA STRONA: NAWIGACJA (SIDEBAR) -->
+            <td class="sidebar">
+                <h3>Nawigacja</h3>
+                <ul>
+                    <li><a href="#o-mnie">O Mnie</a></li>
+                    <li><a href="#moj-vlog">Mój Vlog (Dziennik)</a></li>
+                    <li><a href="#zainteresowania">Zainteresowania</a></li>
+                </ul>
+                
+                <!-- Elegancki, unowocześniony znaczek "Strona w budowie" -->
+                <div class="construction-box">
+                    <span style="font-size: 1.2rem;">🚧</span><br>
+                    <small style="color: var(--accent-red); font-weight: bold;">STRONA W BUDOWIE</small>
+                </div>
+            </td>
 
-        <!-- PRAWA KOLUMNA: WLOG -->
-        <section class="card vlog-section">
-            <h2>Mój Wlog</h2>
-            <p class="section-intro">Czyli mój szybki dziennik sieciowy. Zobacz, co u mnie słychać!</p>
-            
-            <div class="vlog-timeline">
-                <article class="vlog-post">
-                    <div class="post-meta">13 października 2026</div>
-                    <h3>Wpis #2: Witryna odświeżona!</h3>
-                    <p>Udało mi się połączyć stary, kultowy pasek informacyjny z nowoczesnym wyglądem strony. Wszystko śmiga na darmowym hostingu GitHub Pages. Wygląda to teraz naprawdę profesjonalnie!</p>
-                </article>
+            <!-- PRAWA STRONA: GŁÓWNA TREŚĆ -->
+            <td class="main-content">
+                
+                <!-- SEKCJA O MNIE -->
+                <a name="o-mnie"></a>
+                <h2>Siemanko, jestem Wojtek!</h2>
+                <p>Witaj w mojej cyber-przestrzeni. Postanowiłem połączyć układ klasycznych stron z minionej epoki z nowoczesnym, czystym wyglądem. Znajdziesz tutaj informacje o moim życiu, komputerach i rzeczach, które mnie kręcą.</p>
+                
+                <hr>
 
-                <article class="vlog-post">
-                    <div class="post-meta">10 października 2026</div>
-                    <h3>Wpis #1: Pierwsze kroki w sieci</h3>
-                    <p>Oficjalnie odpalam swoją stronę internetową. Początki bywają trudne, ale jaram się, że mam własny kąt w Internecie, który mogę rozwijać. Następny krok: dodanie kolejnych podstron!</p>
-                </article>
-            </div>
-        </section>
-    </main>
+                <!-- SEKCJA VLOG -->
+                <a name="moj-vlog"></a>
+                <h2>Mój Wlog (Cyber-Dziennik)</h2>
+                <p><i>Najświeższe wieści z mojego życia układane w klasycznej tabeli wpisów:</i></p>
+                
+                <table class="vlog-table">
+                    <tr>
+                        <td>
+                            <div class="vlog-date">Wpis #2 — 13 października 2026</div>
+                            <strong>Strona została odświeżona!</strong><br>
+                            Udało mi się połączyć stary, kultowy układ tabelaryczny i pasek informacyjny z nowoczesnym wyglądem. Wszystko śmiga na darmowym hostingu GitHub Pages!
+                        </td>
+                    </tr>
+                    <tr style="height: 15px;"><td></td></tr> <!-- Pętla przestrzeni (odpowiednik starego retro designu) -->
+                    <tr>
+                        <td>
+                            <div class="vlog-date">Wpis #1 — 10 października 2026</div>
+                            <strong>Pierwsze kroki w sieci</strong><br>
+                            To mój pierwszy wpis do wloga. Strona wreszcie ruszyła pod właściwym adresem index.html. Jaram się, że mam własne miejsce w Internecie.
+                        </td>
+                    </tr>
+                </table>
 
+                <hr>
+
+                <!-- SEKCJA ZAINTERESOWANIA -->
+                <a name="zainteresowania"></a>
+                <h2>Moje Zainteresowania</h2>
+                <ul>
+                    <li>🎮 Dobre gry komputerowe (szczególnie strategie i fpsy)</li>
+                    <li>💻 Nowoczesne technologie i tworzenie stron WWW</li>
+                    <li>🎵 Dobra muzyka puszczana w tle podczas kodowania</li>
+                </ul>
+
+            </td>
+        </tr>
+    </table>
+
+    <!-- STOPKA Z LICZNIKIEM ODWIEDZIN W STYLU RETRO -->
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Wojtek. Strona hostowana z dumą na GitHub Pages.</p>
-        </div>
+        <p>Jesteś gościem numer:</p>
+        <div class="counter-box">0001337</div>
+        <p style="font-size: 0.85rem; color: #64748b; margin-top: 15px;">
+            &copy; 2026 Wojtek WebDesign. Strona hostowana z dumą na GitHub Pages.
+        </p>
     </footer>
 
 </body>
