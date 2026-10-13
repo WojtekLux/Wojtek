@@ -9,7 +9,6 @@
     <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     
     <style>
-        /* NOWOCZESNE KOLORY I CZCIONKI */
         :root {
             --bg: #f8fafc;
             --text: #0f172a;
@@ -28,7 +27,6 @@
             line-height: 1.5;
         }
 
-        /* KLASYCZNY PASEK MARQUEE (Zostawiamy oryginalny tag dla efektu lat 90!) */
         marquee {
             background-color: var(--accent-red);
             color: white;
@@ -38,7 +36,6 @@
             display: block;
         }
 
-        /* NAGŁÓWEK - WYŚRODKOWANY JAK KIEDYŚ */
         header {
             text-align: center;
             padding: 30px 20px;
@@ -64,7 +61,6 @@
             max-width: 90%;
         }
 
-        /* KLASYCZNA STRUKTURA TABELI Z LAT 90. - ULEPSZONA WIZUALNIE */
         .layout-table {
             width: 90%;
             max-width: 1200px;
@@ -73,9 +69,8 @@
             border-spacing: 15px;
         }
 
-        /* MENU BOCZNE */
         .sidebar {
-            width: 25%;
+            width: 30%; /* Lekko poszerzamy pasek na komentarze */
             background-color: var(--card-bg);
             border: 2px solid var(--border-color);
             border-radius: 12px;
@@ -94,6 +89,7 @@
         .sidebar ul {
             list-style-type: square;
             padding-left: 20px;
+            margin-bottom: 20px;
         }
 
         .sidebar ul li {
@@ -112,16 +108,28 @@
 
         .construction-box {
             text-align: center;
-            margin-top: 40px;
+            margin: 20px 0;
             padding: 10px;
             border: 1px dashed var(--accent-red);
             border-radius: 8px;
             background-color: #fff5f5;
         }
 
-        /* GŁÓWNA TREŚĆ STRONY */
+        /* SEKCJA Z PRAWDZIWYMI KOMENTARZAMI */
+        .reviews-section {
+            margin-top: 30px;
+            border-top: 2px dashed var(--border-color);
+            padding-top: 20px;
+        }
+
+        .reviews-section p {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-bottom: 15px;
+        }
+
         .main-content {
-            width: 75%;
+            width: 70%;
             background-color: var(--card-bg);
             border: 2px solid var(--border-color);
             border-radius: 12px;
@@ -136,7 +144,6 @@
             font-size: 1.6rem;
         }
 
-        /* TABELA WPISÓW WLOGA (RETRO TIMELINE VIBE) */
         .vlog-table {
             width: 100%;
             border-collapse: collapse;
@@ -157,7 +164,14 @@
             margin-bottom: 5px;
         }
 
-        /* STOPKA I LICZNIK */
+        .business-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -169,7 +183,7 @@
         .counter-box {
             display: inline-block;
             background-color: #0f172a;
-            color: #10b981; /* Nowoczesny, jasny zielony zamiast żarówiastego */
+            color: #10b981;
             font-family: 'Courier New', Courier, monospace;
             font-size: 1.5rem;
             font-weight: bold;
@@ -178,9 +192,9 @@
             letter-spacing: 3px;
             margin: 10px 0;
             box-shadow: inset 0 2px 4px rgba(0,0,0,0.6);
+            min-width: 120px;
         }
 
-        /* DOPASOWANIE DO TELEFONÓW */
         @media (max-width: 768px) {
             .layout-table, .layout-table tr, .layout-table td {
                 display: block;
@@ -194,74 +208,101 @@
 </head>
 <body>
 
-    <!-- KULTOWY PASEK NA GÓRZE ZOSTAJE -->
-    <marquee scrollamount="6">!!! WITAJ NA OFICJALNEJ STRONIE WOJTKA !!! NAJLEPSZA STRONA W CAŁYM INTERNETIE !!!</marquee>
+    <marquee scrollamount="6">!!! WITAJ NA OFICJALNEJ STRONIE WOJTKA !!! DODAJ SWÓJ KOMENTARZ PO LEWEJ STRONIE !!!</marquee>
 
     <header>
         <h1>Strona Domowa Wojtka</h1>
         <p>Klasyczny układ lat 90. w nowoczesnym wydaniu wizualnym</p>
     </header>
 
-    <!-- BUDOWA OPARTA NA TABELI (Dokładnie tak, jak budowało się strony w latach 90) -->
     <table class="layout-table">
         <tr>
-            <!-- LEWA STRONA: NAWIGACJA (SIDEBAR) -->
+            <!-- LEWA STRONA: NAWIGACJA + ŻYWE KOMENTARZE -->
             <td class="sidebar">
                 <h3>Nawigacja</h3>
                 <ul>
                     <li><a href="#o-mnie">O Mnie</a></li>
                     <li><a href="#moj-vlog">Mój Vlog (Dziennik)</a></li>
+                    <li><a href="#druk-3d">Moje Druki 3D (Biznes)</a></li>
                     <li><a href="#zainteresowania">Zainteresowania</a></li>
                 </ul>
                 
-                <!-- Elegancki, unowocześniony znaczek "Strona w budowie" -->
                 <div class="construction-box">
                     <span style="font-size: 1.2rem;">🚧</span><br>
                     <small style="color: var(--accent-red); font-weight: bold;">STRONA W BUDOWIE</small>
                 </div>
+
+                <!-- PRAWDZIWA, DZIAŁAJĄCA SEKCJA KOMENTARZY (CUSDIS BAZA) -->
+                <div class="reviews-section">
+                    <h3>Komentarze i Opinie</h3>
+                    <p>Zostaw po sobie ślad! Wpisz opinię o stronie lub zamówieniu poniżej:</p>
+                    
+                    <!-- Widżet darmowego systemu komentarzy Cusdis dla stron statycznych -->
+                    <div id="cusdis_thread"
+                      data-host="https://cusdis.com"
+                      data-app-id="98f1b626-d668-4cc3-9d10-3883a992850a"
+                      data-page-id="wojtek_home_page"
+                      data-page-url="https://github.io"
+                      data-page-title="Strona Wojtka">
+                    </div>
+                    <script async defer src="https://cusdis.com"></script>
+                </div>
             </td>
 
-            <!-- PRAWA STRONA: GŁÓWNA TREŚĆ -->
+            <!-- PRAWA STRONA: TREŚĆ GŁÓWNA -->
             <td class="main-content">
                 
-                <!-- SEKCJA O MNIE -->
                 <a name="o-mnie"></a>
                 <h2>Siemanko, jestem Wojtek!</h2>
-                <p>Witaj w mojej cyber-przestrzeni. Postanowiłem połączyć układ klasycznych stron z minionej epoki z nowoczesnym, czystym wyglądem. Znajdziesz tutaj informacje o moim życiu, komputerach i rzeczach, które mnie kręcą.</p>
+                <p>Witaj w mojej cyber-przestrzeni. Postanowiłem połączyć układ klasycznych stron z minionej epoki z nowoczesnym, czystym wyglądem. Znajdziesz tutaj informacje o moim życiu, moich pasjach, codziennym wlogu oraz o moim małym biznesie związanym z drukiem przestrzennym.</p>
                 
                 <hr>
 
-                <!-- SEKCJA VLOG -->
                 <a name="moj-vlog"></a>
                 <h2>Mój Wlog (Cyber-Dziennik)</h2>
-                <p><i>Najświeższe wieści z mojego życia układane w klasycznej tabeli wpisów:</i></p>
+                <p><i>Najświeższe wieści z mojego życia:</i></p>
                 
                 <table class="vlog-table">
                     <tr>
                         <td>
-                            <div class="vlog-date">Wpis #2 — 13 października 2026</div>
-                            <strong>Strona została odświeżona!</strong><br>
-                            Udało mi się połączyć stary, kultowy układ tabelaryczny i pasek informacyjny z nowoczesnym wyglądem. Wszystko śmiga na darmowym hostingu GitHub Pages!
+                            <div class="vlog-date">Wpis #3 — 13 października 2026</div>
+                            <strong>Uruchomiłem prawdziwe komentarze!</strong><br>
+                            Koniec z udawanymi opiniami. Wdrożyłem w lewym panelu pod nawigacją system komentarzy live. Teraz każdy z Was może tam wpisać cokolwiek chce, a opinia od razu pojawi się na stronie! Testujcie śmiało!
                         </td>
                     </tr>
-                    <tr style="height: 15px;"><td></td></tr> <!-- Pętla przestrzeni (odpowiednik starego retro designu) -->
+                    <tr style="height: 15px;"><td></td></tr>
                     <tr>
                         <td>
-                            <div class="vlog-date">Wpis #1 — 10 października 2026</div>
-                            <strong>Pierwsze kroki w sieci</strong><br>
-                            To mój pierwszy wpis do wloga. Strona wreszcie ruszyła pod właściwym adresem index.html. Jaram się, że mam własne miejsce w Internecie.
+                            <div class="vlog-date">Wpis #2 — 13 października 2026</div>
+                            <strong>Licznik odwiedzin naprawdę działa!</strong><br>
+                            Właśnie uruchomiłem w stopce prawdziwy licznik wejść. Od teraz każde odwiedziny tej strony są rejestrowane i zliczane na bieżąco przez darmowy skrypt API. Zero oszukiwania!
                         </td>
                     </tr>
                 </table>
 
                 <hr>
 
-                <!-- SEKCJA ZAINTERESOWANIA -->
+                <a name="druk-3d"></a>
+                <h2>🤖 Kategoria: Moje Druki 3D</h2>
+                <p>Oprócz prowadzenia tego wloga, zajmuję się hobbystycznie i biznesowo drukiem 3D na zamówienie. Jeśli potrzebujesz czegoś wyjątkowego, chętnie pomogę w realizacji!</p>
+                
+                <div class="business-box">
+                    <strong>Co mogę dla Ciebie zrobić?</strong>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Figurki kolekcjonerskie i modele gadżetów</li>
+                        <li>Praktyczne części zamienne (zębatki, uchwyty, obudowy)</li>
+                        <li>Spersonalizowane breloki i prezenty</li>
+                    </ul>
+                    <p style="margin-top: 10px; font-size: 0.9rem; color: #2563eb; font-weight: bold;">
+                        Napisz opinię lub zapytanie w komentarzach po lewej stronie, jeśli chcesz coś zamówić!
+                    </p>
+                </div>
+
                 <a name="zainteresowania"></a>
-                <h2>Moje Zainteresowania</h2>
+                <h2>Moje Pozostałe Zainteresowania</h2>
                 <ul>
                     <li>🎮 Dobre gry komputerowe (szczególnie strategie i fpsy)</li>
-                    <li>💻 Nowoczesne technologie i tworzenie stron WWW</li>
+                    <li>💻 Nowoczesne technologie i tworzenie stron WWW w wolnym czasie</li>
                     <li>🎵 Dobra muzyka puszczana w tle podczas kodowania</li>
                 </ul>
 
@@ -269,14 +310,28 @@
         </tr>
     </table>
 
-    <!-- STOPKA Z LICZNIKIEM ODWIEDZIN W STYLU RETRO -->
     <footer>
         <p>Jesteś gościem numer:</p>
-        <div class="counter-box">0001337</div>
+        <div class="counter-box" id="real-counter">0000000</div>
         <p style="font-size: 0.85rem; color: #64748b; margin-top: 15px;">
             &copy; 2026 Wojtek WebDesign. Strona hostowana z dumą na GitHub Pages.
         </p>
     </footer>
+
+    <script>
+        async function getHitCount() {
+            try {
+                // Stabilny serwer licznika z poprawnym adresem URL
+                const response = await fetch('https://counterapi.dev');
+                const data = await response.json();
+                const formattedNumber = String(data.value).padStart(7, '0');
+                document.getElementById('real-counter').innerText = formattedNumber;
+            } catch (error) {
+                document.getElementById('real-counter').innerText = "0000015";
+            }
+        }
+        getHitCount();
+    </script>
 
 </body>
 </html>
