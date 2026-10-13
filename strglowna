@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oficjalna strona Wojtka</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- KULTOWY PASEK RETRO ZOSTAJE NA GÓRZE -->
+    <marquee bgcolor="#ff4757" scrollamount="6"><font color="#FFFFFF" size="4"><b>!!! WITAJ NA OFICJALNEJ STRONIE WOJTKA !!! NAJLEPSZA STRONA W CAŁYM INTERNETIE !!!</b></font></marquee>
+
+    <header>
+        <div class="container header-content">
+            <div class="avatar">W</div>
+            <h1>Siemanko, jestem Wojtek!</h1>
+            <p class="subtitle">Witaj w mojej osobistej przestrzeni w sieci.</p>
+        </div>
+    </header>
+
+    <main class="container page-layout">
+        <!-- LEWA KOLUMNA: O MNIE -->
+        <section class="card about-section">
+            <h2>O mnie</h2>
+            <p>Zdecydowałem się na stworzenie własnego miejsca w sieci, żeby dzielić się swoimi projektami i codziennością. Interesuję się technologią, nowoczesnym web designem oraz dobrą rozrywką. Kiedy nie siedzę przed komputerem, spędzam czas ze znajomymi lub planuję kolejne cele.</p>
+            
+            <h3 style="margin-top: 25px;">Moje zainteresowania:</h3>
+            <ul class="interests-list">
+                <li>🎮 Gry komputerowe (szczególnie dobre strategie i fpsy)</li>
+                <li>💻 Kodowanie stron internetowych i zabawa technologią</li>
+                <li>🎵 Odkrywanie nowej muzyki i dobre brzmienia</li>
+            </ul>
+        </section>
+
+        <!-- PRAWA KOLUMNA: WLOG -->
+        <section class="card vlog-section">
+            <h2>Mój Wlog</h2>
+            <p class="section-intro">Czyli mój szybki dziennik sieciowy. Zobacz, co u mnie słychać!</p>
+            
+            <div class="vlog-timeline">
+                <article class="vlog-post">
+                    <div class="post-meta">13 października 2026</div>
+                    <h3>Wpis #2: Witryna odświeżona!</h3>
+                    <p>Udało mi się połączyć stary, kultowy pasek informacyjny z nowoczesnym wyglądem strony. Wszystko śmiga na darmowym hostingu GitHub Pages. Wygląda to teraz naprawdę profesjonalnie!</p>
+                </article>
+
+                <article class="vlog-post">
+                    <div class="post-meta">10 października 2026</div>
+                    <h3>Wpis #1: Pierwsze kroki w sieci</h3>
+                    <p>Oficjalnie odpalam swoją stronę internetową. Początki bywają trudne, ale jaram się, że mam własny kąt w Internecie, który mogę rozwijać. Następny krok: dodanie kolejnych podstron!</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Wojtek. Strona hostowana z dumą na GitHub Pages.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
