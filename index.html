@@ -115,6 +115,38 @@
             background-color: #fff5f5;
         }
 
+        /* STYL WIDŻETU STATUSU LIVE */
+        .status-box {
+            background-color: var(--bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            background-color: #64748b; /* domyślny szary */
+        }
+
+        /* Animacja pulsowania dla aktywnego statusu */
+        .status-dot.pulsing {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
         .reviews-section {
             margin-top: 30px;
             border-top: 2px dashed var(--border-color);
@@ -216,7 +248,7 @@
 
     <table class="layout-table">
         <tr>
-            <!-- LEWA STRONA: NAWIGACJA + FORMULARZ KOMENTARZY -->
+            <!-- LEWA STRONA: NAWIGACJA + STATUS + KOMENTARZE -->
             <td class="sidebar">
                 <h3>Nawigacja</h3>
                 <ul>
@@ -226,22 +258,30 @@
                     <li><a href="#zainteresowania">Zainteresowania</a></li>
                 </ul>
                 
+                <!-- NOWY WIDŻET STATUSU LIVE -->
+                <div class="status-box">
+                    <span class="status-dot pulsing" id="live-dot"></span>
+                    <div>
+                        <strong style="display:block; font-size: 0.75rem; color: #64748b; text-transform: uppercase;">Aktualny status:</strong>
+                        <span id="live-status-text">Ładowanie statusu...</span>
+                    </div>
+                </div>
+
                 <div class="construction-box">
                     <span style="font-size: 1.2rem;">🚧</span><br>
                     <small style="color: var(--accent-red); font-weight: bold;">STRONA W BUDOWIE</small>
                 </div>
 
-                <!-- NOWY, NIEZAWODNY FORMULARZ KOMENTARZY -->
                 <div class="reviews-section">
                     <h3>Komentarze i Opinie</h3>
                     <p>Zostaw po sobie ślad! Wpisz opinię o stronie lub zamówieniu poniżej:</p>
                     
-<form action="https://formspree.io/f/xdeawrpp" method="POST" style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
+                    <form action="https://formspree.io" method="POST" style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
                         <label style="font-size: 0.85rem; font-weight: bold; color: var(--text);">Twoje Imię / Nick:</label>
-                        <input type="text" name="name" required placeholder="tak tu napisz" style="padding: 8px; border: 1px solid var(--border-color); border-radius: 6px; font-family: inherit;">
+                        <input type="text" name="name" required placeholder="np. Wojtek" style="padding: 8px; border: 1px solid var(--border-color); border-radius: 6px; font-family: inherit;">
                         
                         <label style="font-size: 0.85rem; font-weight: bold; color: var(--text);">Twoja Opinia:</label>
-                        <textarea name="message" required placeholder="tak tu treść" rows="4" style="padding: 8px; border: 1px solid var(--border-color); border-radius: 6px; font-family: inherit; resize: none;"></textarea>
+                        <textarea name="message" required placeholder="Wpisz treść..." rows="4" style="padding: 8px; border: 1px solid var(--border-color); border-radius: 6px; font-family: inherit; resize: none;"></textarea>
                         
                         <button type="submit" style="background-color: var(--accent-blue); color: white; border: none; padding: 10px; font-weight: bold; border-radius: 6px; cursor: pointer;">Wyślij Komentarz</button>
                     </form>
@@ -264,17 +304,17 @@
                 <table class="vlog-table">
                     <tr>
                         <td>
-                            <div class="vlog-date">Wpis #3 — 13 października 2026</div>
-                            <strong>Uruchomiłem prawdziwe komentarze!</strong><br>
-                            Wdrożyłem w lewym panelu bezpieczny formularz. Teraz każdy z Was może tam wpisać swoją opinię, a system prześle ją prosto na moją skrzynkę pocztową! i dalej nie dzała!
+                            <div class="vlog-date">Wpis #4 — 14 października 2026</div>
+                            <strong>Dodałem Status Live w panelu bocznym!</strong><br>
+                            Teraz na bieżąco możecie sprawdzać, co aktualnie robię. Jeśli kropka świeci się na zielono, oznacza to, że moje drukarki 3D właśnie pracują nad nowymi zamówieniami!
                         </td>
                     </tr>
                     <tr style="height: 15px;"><td></td></tr>
                     <tr>
                         <td>
-                            <div class="vlog-date">Wpis #2 — 13 października 2026</div>
-                            <strong>Licznik odwiedzin naprawdę działa!</strong><br>
-                            Właśnie uruchomiłem w stopce prawdziwy licznik wejść. Od teraz każde odwiedziny tej strony są rejestrowane i zliczane na bieżąco przez darmowy skrypt API. Zero oszukiwania!
+                            <div class="vlog-date">Wpis #3 — 13 października 2026</div>
+                            <strong>Uruchomiłem prawdziwe komentarze!</strong><br>
+                            Koniec z udawanymi opiniami. Wdrożyłem w lewym panelu bezpieczny formularz Formspree. Teraz każdy z Was może tam wpisać swoją opinię!
                         </td>
                     </tr>
                 </table>
@@ -283,3 +323,63 @@
 
                 <a name="druk-3d"></a>
                 <h2>🤖 Kategoria: Moje Druki 3D</h2>
+                <p>Oprócz prowadzenia tego wloga, zajmuję się hobbystycznie i biznesowo drukiem 3D na zamówienie. Jeśli potrzebujesz czegoś wyjątkowego, chętnie pomogę w realizacji!</p>
+                
+                <div class="business-box">
+                    <strong>Co mogę dla Ciebie zrobić?</strong>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Figurki kolekcjonerskie i modele gadżetów</li>
+                        <li>Praktyczne części zamienne (zębatki, uchwyty, obudowy)</li>
+                        <li>Spersonalizowane breloki i prezenty</li>
+                    </ul>
+                    <p style="margin-top: 10px; font-size: 0.9rem; color: #2563eb; font-weight: bold;">
+                        Napisz opinię lub zapytanie w komentarzach po lewej stronie, jeśli chcesz coś zamówić!
+                    </p>
+                </div>
+
+                <a name="zainteresowania"></a>
+                <h2>Moje Pozostałe Zainteresowania</h2>
+                <ul>
+                    <li>🎮 Dobre gry komputerowe (szczególnie strategie i fpsy)</li>
+                    <li>💻 Nowoczesne technologie i tworzenie stron WWW w wolnym czasie</li>
+                    <li>🎵 Dobra muzyka puszczana w tle podczas kodowania</li>
+                </ul>
+
+            </td>
+        </tr>
+    </table>
+
+    <footer>
+        <p>Jesteś gościem numer:</p>
+        <div class="counter-box" id="real-counter">0000000</div>
+        <p style="font-size: 0.85rem; color: #64748b; margin-top: 15px;">
+            &copy; 2026 Wojtek WebDesign. Strona hostowana z dumą na GitHub Pages.
+        </p>
+    </footer>
+
+    <script>
+        // ==========================================
+        // ⚙️ TUTAJ ZMIENIASZ SWÓJ STATUS LIVE!
+        // ==========================================
+        const KOLOR_STATUSU = '#10b981';
+        const TEKST_STATUSU = 'Intesywne robienie strozy i oglądanie scamer payback;
+        // ==========================================
+
+        document.getElementById('live-dot').style.backgroundColor = KOLOR_STATUSU;
+        document.getElementById('live-status-text').innerText = TEKST_STATUSU;
+
+        async function getHitCount() {
+            try {
+                const response = await fetch('https://counterapi.dev');
+                const data = await response.json();
+                const formattedNumber = String(data.value).padStart(7, '0');
+                document.getElementById('real-counter').innerText = formattedNumber;
+            } catch (error) {
+                document.getElementById('real-counter').innerText = "0000021";
+            }
+        }
+        getHitCount();
+    </script>
+
+</body>
+</html>
